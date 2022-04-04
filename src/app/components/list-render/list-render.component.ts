@@ -1,19 +1,26 @@
+/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
-
+import { Animal } from 'src/app/interfaces/Animal';
 @Component({
   selector: 'app-list-render',
   templateUrl: './list-render.component.html',
   styleUrls: ['./list-render.component.scss'],
 })
 export class ListRenderComponent implements OnInit {
-  animals = [
-    { name: 'Dog', sound: 'Woof!' },
-    { name: 'Cat', sound: 'Meow!' },
-    { name: 'Cow', sound: 'Moo!' },
-    { name: 'Fox', sound: 'Wa-pa-pa-pa-pa-pa-pow!' },
+  animals: Animal[] = [
+    { name: 'Dog', sound: 'Woof!', age: 5 },
+    { name: 'Cat', sound: 'Meow!', age: 3 },
+    { name: 'Cow', sound: 'Moo!', age: 2 },
+    { name: 'Fox', sound: 'Wa-pa-pa-pa-pa-pa-pow!', age: 1 },
   ];
+
+  animalDetails = '';
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  showAge(animal: Animal): void {
+    this.animalDetails = `${animal.name} is ${animal.age} years old`;
+  }
 }

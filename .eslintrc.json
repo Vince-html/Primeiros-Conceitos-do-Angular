@@ -45,8 +45,13 @@
       "extends": [
         "plugin:@angular-eslint/template/recommended"
       ],
-      "rules": {}
+      "rules": {
+        "@angular-eslint/no-empty-lifecycle-method": [
+          "error"
+        ]
+      }
     },
+
     {
       "files": ["*.html"],
       "excludedFiles": ["*inline-template-*.component.html"],
