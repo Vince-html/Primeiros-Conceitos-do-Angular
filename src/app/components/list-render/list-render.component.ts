@@ -1,6 +1,8 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
 import { Animal } from 'src/app/interfaces/Animal';
+import { ChamadaService } from 'src/app/services/chamada.service';
+
 @Component({
   selector: 'app-list-render',
   templateUrl: './list-render.component.html',
@@ -16,11 +18,15 @@ export class ListRenderComponent implements OnInit {
 
   animalDetails = '';
 
-  constructor() {}
+  constructor(private chamadaService: ChamadaService) {}
 
   ngOnInit(): void {}
 
   showAge(animal: Animal): void {
     this.animalDetails = `${animal.name} is ${animal.age} years old`;
+  }
+
+  removeAnimal(animal: Animal): void {
+    this.chamadaService.remove(this.animals, animal);
   }
 }
